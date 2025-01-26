@@ -1,4 +1,5 @@
-@import '../lib/fonts.scss';
+@import "../lib/fonts.scss";
+@import "../../scss/components/main.scss";
 
 .main_wrapper {
   min-height: 100%;
@@ -39,6 +40,12 @@
     @media (max-width: 1024px) {
       margin-right: calc(70vw - 1rem);
     }
+    @media (max-width: 768px) {
+      margin-right: calc(70vw - 3rem);
+    }
+    @media (max-width: 576px) {
+      margin-right: calc(70vw - 10rem);
+    }
   }
 }
 
@@ -51,11 +58,14 @@
       width: 100%;
       height: 100%;
       background-color: #fafafa;
-      padding: 100px 30px 30px 30px;
+      margin-top: 50px;
       transition: left 0.3s ease 0s;
-      overflow: auto;
+      &::-webkit-scrollbar {
+        width: 0px; /* Ширина вертикального скролбару */
+        height: 12px; /* Висота горизонтального скролбару */
+      }
       &::before {
-        content: '';
+        content: "";
         position: fixed;
         width: 100%;
         top: 0;
@@ -67,6 +77,7 @@
         z-index: 2;
       }
       &.active {
+        overflow-y: auto;
         left: 0;
       }
     }
@@ -91,7 +102,7 @@
         top: 50%;
         transform: scale(1) translate(-100%, -50%);
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           height: 3px;
           border-radius: 10px;
@@ -103,7 +114,7 @@
           transform: scale(1) translate(-100%, -60%);
         }
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           height: 3px;
           border-radius: 10px;
@@ -146,12 +157,12 @@
     }
     @media (max-width: 1024px) {
       flex-direction: column;
+      padding-top: 55px;
       gap: 20px;
       li {
-        display: flex;
-        align-items: center;
         margin: 0;
         padding: 0;
+        text-align: center;
         a {
           font-size: 24px;
         }
@@ -176,7 +187,7 @@
       margin-top: 5px;
       background-color: #4368c8;
       display: block;
-      content: '';
+      content: "";
       height: 3px;
       width: 0%;
       transition: width 0.3s ease-in-out;
@@ -188,21 +199,38 @@
   &__sub-list {
     position: absolute;
     top: 100%;
-    right: 0;
+    left: -45px;
     padding: 15px;
-    width: 200px;
+    width: 300px;
     border-radius: 10px;
-    align-items: center;
-    transform: translate(0px, 10%);
+    transform: translate(0px, 30px);
     opacity: 0;
-    visibility: hidden;
     pointer-events: none;
-    transition: all 0.3s ease 0s;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    background-color: #fff;
+    @media (max-width: 1024px) {
+      padding: 0px;
+      position: relative;
+      left: 0;
+      transform: translate(0px, 0px);
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+    }
+    @media (max-width: 400px) {
+      max-width: 350px;
+    }
     &._active {
       opacity: 1;
-      visibility: visible;
       transform: translate(0px, 0px);
       pointer-events: all;
+      padding: 12px;
+      @media (max-width: 1024px) {
+        max-height: 400px;
+      }
+      @media (max-width: 400px) {
+        max-height: 400px;
+      }
     }
     a {
       display: inline-block;
@@ -213,7 +241,7 @@
         margin-top: 5px;
         background-color: #4368c8;
         display: block;
-        content: '';
+        content: "";
         height: 3px;
         width: 0%;
         transition: width 0.3s ease-in-out;
@@ -223,22 +251,28 @@
       }
     }
     li {
-      background: white;
-      width: 300px;
+      background: transparent;
       padding: 10px;
       margin-left: 20px !important;
-    }
-  }
-  &__arrow {
-    img {
-      position: relative;
-      top: 2px;
-      width: 18px;
-      height: 16px;
+      @media (max-width: 1024px) {
+        margin: 0 !important;
+      }
     }
   }
 }
-
+.menu__arrow {
+  position: relative;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  svg {
+    width: 18px;
+    height: 20px;
+  }
+  @media (max-width: 1024px) {
+    top: -2px;
+  }
+}
 .change-lang {
   font-size: 18px;
   font-family: Rubik;

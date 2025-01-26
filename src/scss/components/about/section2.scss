@@ -1,0 +1,38 @@
+.new-block {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  .row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+    .cell {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .text-center {
+        text-align: center;
+        .name {
+          font-size: 3rem;
+          margin-bottom: 10px;
+        }
+        .description {
+          font-size: 1.3rem;
+          line-height: 1.5;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

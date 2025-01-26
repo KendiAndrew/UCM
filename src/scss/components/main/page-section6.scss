@@ -1,0 +1,44 @@
+.partners {
+  background: linear-gradient(90deg, #3b85f4 10%, #001aff 100%);
+  max-width: 1920px;
+  width: 100%;
+  position: relative;
+  h2 {
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  a {
+    display: block;
+    margin-top: 30px;
+  }
+}
+
+.partner-dit {
+  position: relative;
+  text-align: center;
+  margin: 10px;
+  font-size: 20px;
+  color: yellow;
+}
+.swiper {
+  max-width: 1200px;
+  background: rgba(156, 181, 204, 0.31);
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 0 auto;
+  @media (max-width: 480px) {
+    margin: 0;
+  }
+  &__container {
+    margin: 50px 0 70px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
