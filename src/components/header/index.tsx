@@ -58,7 +58,13 @@ export default function Header() {
                   >
                     Наші проєкти &nbsp;
                   </HashLink>
-                  <span className="menu__arrow">
+                  <span
+                    className="menu__arrow"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      () => setIsActiveSubList1(false);
+                    }}
+                  >
                     <FontAwesomeIcon icon={faAngleDown} />
                   </span>
                   <ul
@@ -109,7 +115,13 @@ export default function Header() {
                   onMouseLeave={() => setIsActiveSubList2(false)}
                 >
                   <p className="menu__link lng-menu3">Інше &nbsp;</p>
-                  <span className="menu__arrow">
+                  <span
+                    className="menu__arrow"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      () => setIsActiveSubList1(false);
+                    }}
+                  >
                     <FontAwesomeIcon icon={faAngleDown} />
                   </span>
                   <ul
